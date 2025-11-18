@@ -1,0 +1,4 @@
+scripts/** linguist-language=JavaScript
+"Discord bots/**" linguist-language=Java
+*.sk linguist-language=Other
+*.sh linguist-language=Shell
