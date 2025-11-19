@@ -1,4 +1,8 @@
-scripts/** linguist-language=JavaScript
-"Discord bots/**" linguist-language=Java
-*.sk linguist-language=Other
-*.sh linguist-language=Shell
+# Treat all .min.js as vendored (ignore them)
+*.min.js linguist-vendored
+
+# Force .sk files to be detected as \"OtherLanguageName\" (replace with a supported language)
+scripts/codes/*.sk linguist-language=Python
+
+# Mark tools/ as vendored so they don't count
+tools/** linguist-vendored
