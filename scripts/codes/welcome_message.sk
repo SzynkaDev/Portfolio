@@ -1,7 +1,0 @@
-on join:
-    send "&aWelcome to the server, %player%!" to player
-    send "&eEnjoy your stay!" to player
-
-on first join:
-    send "&6Welcome %player% to our server for the first time!" to player
-    send "&eMake sure to read the rules and have fun!" to player
