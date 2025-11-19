@@ -1,0 +1,33 @@
+command /spawn [<offlineplayer>]:
+    permission: szynkaDev.spawn.use, szynkaDev.spawn.ause
+    permission message: &cYou can't use this command
+    trigger:
+        set {_loc1x} to player's x-coordinates    
+        set {_loc1y} to player's y-coordinates    
+        set {_loc1z} to player's z-coordinates    
+        set {_x} to 0
+        loop 5 times:
+            if {_loc1x} != player's x-coordinates:
+                send title "&cSpawn" with subtitle "&cYou cancel spawn teleportation"
+            else if {_loc1y} != player's y-coordinates:
+                send title "&cSpawn" with subtitle "&cYou cancel spawn teleportation"
+            else if {_loc1z} != player's z-coordinates:
+                send title "&cSpawn" with subtitle "&cYou cancel spawn teleportation"
+                stop
+            else if {_x} != 5:
+                send title "&aSpawn" with subtitle "&aWait still for %5 - {_x}%"
+            else:
+                teleport player to {spawn::loc}
+                send title "&aSpawn" with subtitle "&aTeleported to spawn"
+                stop
+            add 1 to {_x}
+            wait 20 ticks
+command /setspawn:
+    permission: szynkaDev.spawn.setspawn
+    permission message: &cYou can't use this command
+    trigger:
+        set {spawn::loc} to player's location
+        send "&aYou successful set spawn location" to player
+
+on first join:
+    teleport player to {spawn::loc}
